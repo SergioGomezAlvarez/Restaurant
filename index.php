@@ -1,30 +1,23 @@
 <?php
 
 $dsn = 'mysql:dbname=restaurant;host=127.0.0.1';
+
 $user = 'root';
 $password = '';
 
 try {
     $connectie = new PDO($dsn, $user, $password);
-    echo "Verbinding welo gelukt";
+    echo "Verbinding wel gelukt";
 } catch (PDOException $e) {
     echo "Verbinding niet gelukt: " . $e;
 }
 
 $stmt = $connectie->prepare("UPDATE menu SET titel = :titel WHERE id = :id");
-$stmt->execute(array(':titel' => 'Pizza Hawaii', ':id' => '1'));
 
-$resultSet = $connectie->query("SELECT * FROM menu");
-while ($item = $resultSet->fetch()) {
-    echo '<div class="menu-item">
-    <h2 class="tijdelijk">' . $item['titel'] . '</h2>
-  <div class="menu-content"  <p>' . $item['beschrijving'] . '</p>
-    <p>' . $item['prijs'] . '</p>
-    <h2' . $item['id'] . '</h2>
-    </div>
-    </div>';
-}
-?>
+
+$resultSet = $connectie->query("SELECT * FROM menu, klassieke");
+00
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -145,119 +138,32 @@ while ($item = $resultSet->fetch()) {
                 <h2>Onze populaire gerechten</h2>
             </div>
             <div class="content-container">
-                $resultSet = $connectie->query("SELECT * FROM menu");
-                echo '<h1>Mijn menukaart</h1>';
+                <?php $resultSet = $connectie->query("SELECT * FROM menu");
                 while ($item = $resultSet->fetch()) {
-                echo '<div class="test">
-                    <h2>' . $item['Titel'] . '</h2>
-                    <p>' . $item['Omschrijving'] . '</p>
-                </div>';
-                }
-                <div class="menu-item">
-                    <div class="menu-item-title">
-                        <h2>pizza hawaii</h2>
-                    </div>
-                    <div class="menu-item-order">
-                        <h2>&euro;10,00</h2>
-                        <img class="add-cart" src="images/shopping-cart.png">
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-title">
-                        <h2>pizza hawaii</h2>
-                    </div>
-                    <div class="menu-item-order">
-                        <h2>&euro;10,00</h2>
-                        <img class="add-cart" src="images/shopping-cart.png">
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-title">
-                        <h2>pizza hawaii</h2>
-                    </div>
-                    <div class="menu-item-order">
-                        <h2>&euro;10,00</h2>
-                        <img class="add-cart" src="images/shopping-cart.png">
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-title">
-                        <h2>pizza hawaii</h2>
-                    </div>
-                    <div class="menu-item-order">
-                        <h2>&euro;10,00</h2>
-                        <img class="add-cart" src="images/shopping-cart.png">
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-title">
-                        <h2>pizza hawaii</h2>
-                    </div>
-                    <div class="menu-item-order">
-                        <h2>&euro;10,00</h2>
-                        <img class="add-cart" src="images/shopping-cart.png">
-                    </div>
-                </div>
+                    echo '<div class="menu-item">
+                    <h2 class="tijdelijk">' . $item['titel'] . '</h2>
+                    <div class="menu-content"> <p>' . $item['beschrijving'] . '</p>
+                        <p>' . $item['prijs'] . '</p>
+                        <a class="add-button">+ Voeg Toe</a>
+                         </div> </div>';
+                } ?>
                 <div class="top-text">
-                    <h2>Klassieke pizza's</h2>
+                    <h2>Klassieke gerechten</h2>
                 </div>
-                <div class="menu-item">
-                    <div class="menu-item-title">
-                        <h2>pizza hawaii</h2>
-                    </div>
-                    <div class="menu-item-order">
-                        <h2>&euro;10,00</h2>
-                        <img class="add-cart" src="images/shopping-cart.png">
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-title">
-                        <h2>pizza hawaii</h2>
-                    </div>
-                    <div class="menu-item-order">
-                        <h2>&euro;10,00</h2>
-                        <img class="add-cart" src="images/shopping-cart.png">
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-title">
-                        <h2>pizza hawaii</h2>
-                    </div>
-                    <div class="menu-item-order">
-                        <h2>&euro;10,00</h2>
-                        <img class="add-cart" src="images/shopping-cart.png">
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-title">
-                        <h2>pizza hawaii</h2>
-                    </div>
-                    <div class="menu-item-order">
-                        <h2>&euro;10,00</h2>
-                        <img class="add-cart" src="images/shopping-cart.png">
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-title">
-                        <h2>pizza hawaii</h2>
-                    </div>
-                    <div class="menu-item-order">
-                        <h2>&euro;10,00</h2>
-                        <img class="add-cart" src="images/shopping-cart.png">
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-title">
-                        <h2>pizza hawaii</h2>
-                    </div>
-                    <div class="menu-item-order">
-                        <echo class="menu-price">&euro;10,00</echo>
-                        <img class="add-cart" src="images/shopping-cart.png">
-                    </div>
-                </div>
-
+                <?php $resultSet = $connectie->query("SELECT * FROM klassieke");
+                while ($item = $resultSet->fetch()) {
+                    echo '<div class="menu-item">
+                    <h2 class="tijdelijk">' . $item['titel'] . '</h2>
+                    <div class="menu-content"> <p>' . $item['beschrijving'] . '</p>
+                        <p>' . $item['prijs'] . '</p>
+                        <a class="add-button">+ Voeg Toe</a>
+                         </div> </div>';
+                } ?>
             </div>
         </div>
+
+    </div>
+    </div>
 
 
     </div>
