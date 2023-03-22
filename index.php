@@ -6,7 +6,7 @@ $password = '';
 
 try {
     $connectie = new PDO($dsn, $user, $password);
-    echo "Verbinding wel gelukt";
+    echo "Verbinding welo gelukt";
 } catch (PDOException $e) {
     echo "Verbinding niet gelukt: " . $e;
 }
