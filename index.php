@@ -52,8 +52,29 @@ $resultSet = $connectie->query("SELECT * FROM menu, klassieke");
 
                 <div id="id01" class="modal">
 
-                    <form class="modal-content animate" action="/action_page.php" method="post">
+
+
+                    <form action="index.php" method="POST" class="modal-content animate">
                         <div class="imgcontainer">
+                            <?php
+
+                            if (isset($_POST['username'])) {
+                                $username = $_POST['username'];
+                                $password = $_POST['password'];
+
+
+                                if ($username == "Osama" && $password == "123") {
+                                    $_SESSION['name'] = $username;
+                                } else {
+                                    echo "Wachtwoord verkeerd";
+                                }
+                            }
+
+
+                            if (isset($_SESSION['name']) && $_SESSION['name'] != "") {
+                                echo "Hoi " . $_SESSION['name'];
+                            }
+                            ?>
                             <span onclick="document.getElementById('id01').style.display='none'" class="close"
                                 title="Close Modal">&times;</span>
                             <img class="avatar" src="images/pizza-avatar.png">
@@ -61,10 +82,10 @@ $resultSet = $connectie->query("SELECT * FROM menu, klassieke");
 
                         <div class="container-log-in">
                             <label for="uname"><b>Username</b></label>
-                            <input type="text" placeholder="Enter Username" name="uname" required>
+                            <input type="text" placeholder="Enter Username" name="username" required>
 
                             <label for="psw"><b>Password</b></label>
-                            <input type="password" placeholder="Enter Password" name="psw" required>
+                            <input type="password" placeholder="Enter Password" name="password" required>
 
                             <button class="log-in-confirm" type="submit">Login</button>
                             <label>
@@ -96,41 +117,44 @@ $resultSet = $connectie->query("SELECT * FROM menu, klassieke");
             <div class="space-red-under-bar">
 
             </div>
-            <div class="search-bg">
-                <input type="text" placeholder="Zoek naar een gerecht. .">
-            </div>
+            <form method="post" action="index.php">
+                <input type="text" name="zoekveld" placeholder="Zoek naar een gerecht. .">
+                <input type="submit" name="submit-button" value="Zoeken">
+            </form>
         </div>
     </nav>
     <div class="container">
         <div class="categories">
             <div class="categories-content-bg">
-                <div class="categories-content">
+                <button class="btn_active" onclick="filterSelection('all')"> Show
+                    all</button>
+                <button class="categories-content">
                     <h2>Populaire gerechten</h2>
-                </div>
-                <div class="categories-content">
+                </button>
+                <button class="categories-content" onclick="location.href='?category=klassieke'">
                     <h2>Klassieke Pizza's</h2>
-                </div>
-                <div class="categories-content">
+                </button>
+                <button class="categories-content">
                     <h2>Meat Pizza's</h2>
-                </div>
-                <a class="categories-content">
+                </button>
+                <button class="categories-content">
                     <h2>Vegan Pizza's</h2>
-                </a>
-                <div class="categories-content">
+                </button>
+                <button class="categories-content">
                     <h2>Combi Deals</h2>
-                </div>
-                <div class="categories-content">
+                </button>
+                <button class="categories-content">
                     <h2>Sandwiches</h2>
-                </div>
-                <div class="categories-content">
+                </button>
+                <button class="categories-content">
                     <h2>Dranken</h2>
-                </div>
-                <div class="categories-content">
+                </button>
+                <button class="categories-content">
                     <h2>Bijgerechten</h2>
-                </div>
-                <div class="categories-content">
+                </button>
+                <button class="categories-content">
                     <h2>Desserts</h2>
-                </div>
+                </button>
             </div>
         </div>
         <div class="dishes">
@@ -138,7 +162,7 @@ $resultSet = $connectie->query("SELECT * FROM menu, klassieke");
                 <h2>Onze populaire gerechten</h2>
             </div>
             <div class="content-container">
-                <?php $resultSet = $connectie->query("SELECT * FROM menu");
+                <?php $resultSet = $connectie->prepare("SELECT * FROM menu");
                 while ($item = $resultSet->fetch()) {
                     echo '<div class="menu-item">
                     <h2 class="tijdelijk">' . $item['titel'] . '</h2>
@@ -150,7 +174,26 @@ $resultSet = $connectie->query("SELECT * FROM menu, klassieke");
                 <div class="top-text">
                     <h2>Klassieke gerechten</h2>
                 </div>
-                <?php $resultSet = $connectie->query("SELECT * FROM klassieke");
+                <?php
+                if(isset($_POST['zoekveld']) && $_POST['zoekveld'] != "") {
+                    $zoekveld = $_POST['zoekveld'];
+                    $resultSet = $connectie->prepare("SELECT * FROM klassieke WHERE titel LIKE ?");
+                }
+                else {
+                    $resultSet = $connectie->prepare("SELECT * FROM klassieke");
+                }
+                while ($item = $resultSet->fetch()) {
+                    echo '<div class="menu-item">
+                    <h2 class="tijdelijk">' . $item['titel'] . '</h2>
+                    <div class="menu-content"> <p>' . $item['beschrijving'] . '</p>
+                        <p>' . $item['prijs'] . '</p>
+                        <a class="add-button">+ Voeg Toe</a>
+                         </div> </div>';
+                } ?>
+                <div class="top-text">
+                    <h2>Meat gerechten</h2>
+                </div>
+                <?php $resultSet = $connectie->prepare("SELECT * FROM meat");
                 while ($item = $resultSet->fetch()) {
                     echo '<div class="menu-item">
                     <h2 class="tijdelijk">' . $item['titel'] . '</h2>
@@ -184,10 +227,8 @@ $resultSet = $connectie->query("SELECT * FROM menu, klassieke");
                 header.classList.remove("sticky");
             }
         }
-        // Get the modal
         var modal = document.getElementById('id01');
 
-        // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
