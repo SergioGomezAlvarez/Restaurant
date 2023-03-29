@@ -162,7 +162,7 @@ $resultSet = $connectie->query("SELECT * FROM menu, klassieke");
                 <h2>Onze populaire gerechten</h2>
             </div>
             <div class="content-container">
-                <?php $resultSet = $connectie->prepare("SELECT * FROM menu");
+                <?php /* $resultSet = $connectie->prepare("SELECT * FROM menu");
                 while ($item = $resultSet->fetch()) {
                     echo '<div class="menu-item">
                     <h2 class="tijdelijk">' . $item['titel'] . '</h2>
@@ -170,18 +170,19 @@ $resultSet = $connectie->query("SELECT * FROM menu, klassieke");
                         <p>' . $item['prijs'] . '</p>
                         <a class="add-button">+ Voeg Toe</a>
                          </div> </div>';
-                } ?>
-                <div class="top-text">
-                    <h2>Klassieke gerechten</h2>
-                </div>
+                } */ ?> 
+               
                 <?php
                 if(isset($_POST['zoekveld']) && $_POST['zoekveld'] != "") {
                     $zoekveld = $_POST['zoekveld'];
-                    $resultSet = $connectie->prepare("SELECT * FROM klassieke WHERE titel LIKE ?");
+                    $resultSet = $connectie->prepare("SELECT * FROM menu WHERE titel LIKE '%$zoekveld%' ORDER BY categorie");
+
                 }
                 else {
-                    $resultSet = $connectie->prepare("SELECT * FROM klassieke");
+                    $resultSet = $connectie->prepare("SELECT * FROM menu ORDER BY categorie");
                 }
+                $resultSet->execute(array());
+
                 while ($item = $resultSet->fetch()) {
                     echo '<div class="menu-item">
                     <h2 class="tijdelijk">' . $item['titel'] . '</h2>
