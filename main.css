@@ -41,8 +41,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40%;
-    flex: 1;
+    width: 20%;
     background-color: white;
 }
 
@@ -482,14 +481,14 @@ input[type=password] {
     margin-left: -20px !important;
     margin-top: -120%;
     opacity: 0;
-    transition: all 0.8s
+    transition: all 0.8s;
 }
 
-.button:active:after {
+.add-button:active::after {
     padding: 0;
     margin: 0;
     opacity: 1;
-    transition: 0s
+    transition: 0s;
 }
 
 .btn_active {
@@ -507,6 +506,624 @@ input[type=password] {
     background-color: white;
 }
 
+@media screen and (max-width: 300px) {}
+
+span.psw {
+    display: block;
+    float: none;
+}
+
+.cancelbtn {
+    width: 100%;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.nav-under-bar1 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100px;
+    background-color: white;
+}
+
+.logo-bg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 13%;
+    height: 100px;
+}
+
+.logo01 {
+    width: 50%;
+}
+
+.name-bg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 15%;
+    font-size: 30px;
+    background-color: white;
+}
+
+.mid-space {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    flex: 1;
+    background-color: white;
+}
+
+.log-in-bg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    background-color: white;
+}
+
+.log-in-button {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.log-in-button:hover {
+    background-color: white;
+    border: solid;
+    border-color: red;
+    color: black;
+}
+
+.cart-bg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 13%;
+    height: 100px;
+    background-color: white;
+}
+
+.cart-img {
+    width: 30%;
+}
+
+.red-under-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    height: 70px;
+    background-color: red;
+}
+
+.menu-bg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 70px;
+    padding-left: 50px;
+    background-color: red
+}
+
+.menu-button {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-top: 200px;
+}
+
+.dropdown-links {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.dropdown-content dropdown-links:hover {
+    background-color: #f1f1f1
+}
+
+.menu-bg:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-bg:hover .menu-button {
+    background-color: red
+}
+
+.space-red-under-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    background-color: red;
+}
+
+.search-bg {
+    width: 30%;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+}
+
+.red-under-bar input[type=text] {
+    width: 60%;
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 1400px;
+    padding-top: 50px;
+    background-color: white;
+}
+
+.categories {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    width: 25%;
+    height: 550px;
+    margin-left: 10px;
+    background-color: red;
+}
+
+.categories-content-bg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: -webkit-sticky;
+    position: sticky;
+    width: 85%;
+    height: 505px;
+    margin-left: 10px;
+    background-color: red;
+}
+
+.categories-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+    height: 75px;
+    margin-left: 10px;
+    cursor: pointer;
+    border: solid;
+    border-color: red;
+    color: black;
+    background-color: white;
+}
+
+.dishes {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    margin-left: 100px;
+    background-color: yellow;
+}
+
+.top-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 30px;
+    border: solid;
+    border-color: red;
+    background-color: red;
+    color: white;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 1400px;
+    border: solid;
+    border-color: red;
+    background-color: white;
+}
+
+.menu-item {
+    display: flex;
+    width: 100%;
+    border: solid;
+    border-color: red;
+}
+
+.menu-item-title {
+    height: 100px;
+    padding-left: 20px;
+    flex: 1;
+}
+
+.menu-item-order {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-right: 50px;
+    height: 100px;
+}
+
+.menu-price {
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.add-cart {
+    display: flex;
+    justify-content: flex-end;
+    width: 11%;
+}
+
+/* Full-width input fields */
+input[type=text],
+input[type=password] {
+    width: 100%;
+    height: 50px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+.log-in-confirm {
+    background-color: #04AA6D;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    height: 50px;
+    flex: 1;
+}
+
+.button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: 10%;
+    height: 50px;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+.cancelbtn:hover {
+    cursor: pointer;
+    background-color: rgb(212, 110, 110);
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    height: 370px;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container-log-in {
+    height: 200px;
+    padding: 16px;
+}
+
+.container-bg {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 180px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+.label {
+    flex: 1;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover {
+    cursor: pointer;
+}
+
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+.tijdelijk {
+    display: flex;
+    flex: 1;
+}
+
+.menu-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-right: 50px;
+    height: 100px;
+}
+
+.admin-panel-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.admin-panel-button {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.admin-panel-bg {
+    display: inline-block;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    width: 15%;
+    flex: 1;
+    font-size: 30px;
+    background-color: white;
+}
+
+.admin-nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100px;
+}
+
+.admin-name-bg {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 15%;
+    height: 100px;
+    flex: 1;
+    font-size: 28px;
+    background-color: white
+}
+
+.admin-name{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    height: 100px;
+    padding-right: 150px;
+    font-size: 28px;
+    background-color: white
+}
+
+
+.admin-add-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    --c:  #BBFF76; /* the color*/
+  
+  box-shadow: 0 0 0 .1em inset var(--c); 
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background: 
+    var(--_g) calc(var(--_p,0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p,0%)) 0%,
+    var(--_g) calc(var(--_p,0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p,0%)) 100%;
+  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+  outline-offset: .1em;
+  transition: background-size .4s, background-position 0s .4s;
+  width: 20%;
+  height: 50px;
+  padding-right: 30px;
+}
+
+.admin-add-button:hover{
+    --_p: 100%;
+    transition: background-position .4s, background-size 0s;
+}
+
+.admin-add-button:active{
+    box-shadow: 0 0 9e9q inset #0009; 
+    background-color: var(--c);
+    color: #fff;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .add-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    height: 100px;
+    background-color: white;
+  }
+  
+.admin-add-button{
+    font-family: system-ui, sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    padding: .1em .6em;
+    font-weight: bold;  
+    border: none;
+}
+
+.admin-content-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 1200px;
+    background-color: blue;
+}
+
+.admin-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100px;
+    border: solid;
+    background-color: green;
+}
 @media screen and (max-width: 300px) {
     span.psw {
         display: block;
@@ -515,488 +1132,5 @@ input[type=password] {
 
     .cancelbtn {
         width: 100%;
-    }
-
-    * {
-        padding: 0px;
-        margin: 0px;
-        font-family: 'Open Sans', sans-serif;
-        font-family: 'Roboto Condensed', sans-serif;
-    }
-
-    .nav-under-bar1 {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        height: 100px;
-        background-color: white;
-    }
-
-    .logo-bg {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 13%;
-        height: 100px;
-    }
-
-    .logo01 {
-        width: 50%;
-    }
-
-    .name-bg {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        width: 15%;
-        font-size: 30px;
-        background-color: white;
-    }
-
-    .mid-space {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 40%;
-        flex: 1;
-        background-color: white;
-    }
-
-    .log-in-bg {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 10%;
-        background-color: white;
-    }
-
-    .log-in-button {
-        background-color: red;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 20px;
-        margin: 4px 2px;
-        cursor: pointer;
-    }
-
-    .log-in-button:hover {
-        background-color: white;
-        border: solid;
-        border-color: red;
-        color: black;
-    }
-
-    .cart-bg {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 13%;
-        height: 100px;
-        background-color: white;
-    }
-
-    .cart-img {
-        width: 30%;
-    }
-
-    .red-under-bar {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        width: 100%;
-        height: 70px;
-        background-color: red;
-    }
-
-    .menu-bg {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 10%;
-        height: 70px;
-        padding-left: 50px;
-        background-color: red
-    }
-
-    .menu-button {
-        background-color: red;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 20px;
-        margin: 4px 2px;
-        cursor: pointer;
-    }
-
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        margin-top: 200px;
-    }
-
-    .dropdown-links {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        margin-bottom: 8px;
-    }
-
-    .dropdown-content dropdown-links:hover {
-        background-color: #f1f1f1
-    }
-
-    .menu-bg:hover .dropdown-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .menu-bg:hover .menu-button {
-        background-color: red
-    }
-
-    .space-red-under-bar {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 60%;
-        background-color: red;
-    }
-
-    .search-bg {
-        width: 30%;
-        height: 70px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: red;
-    }
-
-    .red-under-bar input[type=text] {
-        width: 60%;
-        float: right;
-        padding: 6px;
-        border: none;
-        margin-top: 8px;
-        margin-right: 16px;
-        font-size: 17px;
-    }
-
-    .container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        width: 100%;
-        height: 1400px;
-        padding-top: 50px;
-        background-color: white;
-    }
-
-    .categories {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: -webkit-sticky;
-        position: sticky;
-        top: 0;
-        width: 25%;
-        height: 550px;
-        margin-left: 10px;
-        background-color: red;
-    }
-
-    .categories-content-bg {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: -webkit-sticky;
-        position: sticky;
-        width: 85%;
-        height: 505px;
-        margin-left: 10px;
-        background-color: red;
-    }
-
-    .categories-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 85%;
-        height: 75px;
-        margin-left: 10px;
-        cursor: pointer;
-        border: solid;
-        border-color: red;
-        color: black;
-        background-color: white;
-    }
-
-    .dishes {
-        display: flex;
-        flex-direction: column;
-        width: 55%;
-        margin-left: 100px;
-        background-color: yellow;
-    }
-
-    .top-text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        font-size: 30px;
-        border: solid;
-        border-color: red;
-        background-color: red;
-        color: white;
-    }
-
-    .content-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 100%;
-        height: 1400px;
-        border: solid;
-        border-color: red;
-        background-color: white;
-    }
-
-    .menu-item {
-        display: flex;
-        width: 100%;
-        border: solid;
-        border-color: red;
-    }
-
-    .menu-item-title {
-        height: 100px;
-        padding-left: 20px;
-        flex: 1;
-    }
-
-    .menu-item-order {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-end;
-        padding-right: 50px;
-        height: 100px;
-    }
-
-    .menu-price {
-        display: flex;
-        justify-content: flex-end;
-        font-family: 'Open Sans', sans-serif;
-        font-family: 'Roboto Condensed', sans-serif;
-    }
-
-    .add-cart {
-        display: flex;
-        justify-content: flex-end;
-        width: 11%;
-    }
-
-    /* Full-width input fields */
-    input[type=text],
-    input[type=password] {
-        width: 100%;
-        height: 50px;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-    }
-
-    /* Set a style for all buttons */
-    .log-in-confirm {
-        background-color: #04AA6D;
-        color: white;
-        border: none;
-        cursor: pointer;
-        width: 10%;
-        height: 50px;
-        flex: 1;
-    }
-
-    .button:hover {
-        opacity: 0.8;
-    }
-
-    /* Extra styles for the cancel button */
-    .cancelbtn {
-        width: 10%;
-        height: 50px;
-        padding: 10px 18px;
-        background-color: #f44336;
-    }
-
-    .cancelbtn:hover {
-        cursor: pointer;
-        background-color: rgb(212, 110, 110);
-    }
-
-    /* Center the image and position the close button */
-    .imgcontainer {
-        text-align: center;
-        height: 370px;
-        margin: 24px 0 12px 0;
-        position: relative;
-    }
-
-    .avatar {
-        width: 40%;
-        border-radius: 50%;
-    }
-
-    .container-log-in {
-        height: 200px;
-        padding: 16px;
-    }
-
-    .container-bg {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        height: 180px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .psw {
-        float: right;
-        padding-top: 16px;
-    }
-
-    .label {
-        flex: 1;
-    }
-
-    /* The Modal (background) */
-    .modal {
-        display: none;
-        /* Hidden by default */
-        position: fixed;
-        /* Stay in place */
-        z-index: 1;
-        /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%;
-        /* Full width */
-        height: 100%;
-        /* Full height */
-        overflow: auto;
-        /* Enable scroll if needed */
-        background-color: rgb(0, 0, 0);
-        /* Fallback color */
-        background-color: rgba(0, 0, 0, 0.4);
-        /* Black w/ opacity */
-        padding-top: 60px;
-    }
-
-    /* Modal Content/Box */
-    .modal-content {
-        background-color: #fefefe;
-        margin: 5% auto 15% auto;
-        /* 5% from the top, 15% from the bottom and centered */
-        border: 1px solid #888;
-        width: 80%;
-        /* Could be more or less, depending on screen size */
-    }
-
-    /* The Close Button (x) */
-    .close {
-        position: absolute;
-        right: 25px;
-        top: 0;
-        color: #000;
-        font-size: 35px;
-        font-weight: bold;
-    }
-
-    .close:hover {
-        cursor: pointer;
-    }
-
-    .close:focus {
-        color: red;
-        cursor: pointer;
-    }
-
-    /* Add Zoom Animation */
-    .animate {
-        -webkit-animation: animatezoom 0.6s;
-        animation: animatezoom 0.6s
-    }
-
-    @-webkit-keyframes animatezoom {
-        from {
-            -webkit-transform: scale(0)
-        }
-
-        to {
-            -webkit-transform: scale(1)
-        }
-    }
-
-    @keyframes animatezoom {
-        from {
-            transform: scale(0)
-        }
-
-        to {
-            transform: scale(1)
-        }
-    }
-
-    .tijdelijk {
-        display: flex;
-        flex: 1;
-    }
-
-    .menu-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-end;
-        padding-right: 50px;
-        height: 100px;
-    }
-
-    @media screen and (max-width: 300px) {
-        span.psw {
-            display: block;
-            float: none;
-        }
-
-        .cancelbtn {
-            width: 100%;
-        }
     }
 }
