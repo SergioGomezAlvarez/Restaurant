@@ -13,7 +13,8 @@ try {
     echo "Verbinding niet gelukt: " . $e;
 }
 
-
+$resultSet = $connectie->query("SELECT `categorie`, `titel`, `beschrijving`, `prijs`, `id` FROM menu");
+$data = $resultSet->fetchAll(PDO::FETCH_GROUP);
 
 $stmt = $connectie->prepare("UPDATE menu SET titel = :titel WHERE id = :id");
 
@@ -53,9 +54,9 @@ $resultSet = $connectie->query("SELECT * FROM menu");
             <div class="menu-bg">
                 <a class="menu-button" href="index.html">Meer ⬇</a>
                 <div class="dropdown-content">
-                    <a class="dropdown-links">Contact</a>
-                    <a class="dropdown-links">Openingstijden & Info</a>
-                    <a class="dropdown-links">Algemene Voorwaarden</a>
+                    <a class="dropdown-links" href="contact.php">Contact</a>
+                    <a class="dropdown-links" href="openingstijden.php">Openingstijden & Info</a>
+                    <a class="dropdown-links" href="voorwaarden.php">Algemene Voorwaarden</a>
                 </div>
             </div>
             <a class="back-menu-button" href="index.php">Menu</a>
@@ -73,25 +74,25 @@ $resultSet = $connectie->query("SELECT * FROM menu");
 
     <div class="admin-content-container">
 
-
-        <div class="admin-content-container">
-
-
         <?php
-  
 
-    $resultSet = $connectie->query("SELECT `categorie`, `titel`, `beschrijving`, `prijs`, `id` FROM menu");
-    $data = $resultSet->fetchAll(PDO::FETCH_GROUP);
+        echo '<div class="content-container">';
+        if (isset($_GET['id'])) {
+            $sql = "DELETE FROM menu WHERE id = :id";
+            $stmt = $connectie->prepare($sql);
+            $stmt->bindParam(":id", $_GET['id']);
+            $stmt->execute();
+            header("Location: index.php");
+            exit;
+        }
 
-    echo '<div class="content-container">';
-
-    foreach ($data as $categorie => $items) {
-        echo "<div class='top-text'>
+        foreach ($data as $categorie => $items) {
+            echo "<div class='top-text'>
                <h2>$categorie</h2>
            </div>";
 
-        foreach ($items as $item) {
-            echo '<div class="menu-item">
+            foreach ($items as $item) {
+                echo '<div class="menu-item">
                    <h2 class="menu-item-title">' . $item['titel'] . '</h2>
                    <div class="menu-content">
                        <p>' . $item['beschrijving'] . '</p>
@@ -100,14 +101,7 @@ $resultSet = $connectie->query("SELECT * FROM menu");
                        <a class="admin-delete-button" href="index.php?id=' . $item['id'] . '">Verwijder</a>
                    </div>
                </div>';
+            }
         }
-    }
-    
-?>
 
-            echo '</div>';
-
-          
-            ?>
-        </div>
-    </div>
+        ?>

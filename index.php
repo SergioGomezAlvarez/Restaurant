@@ -40,14 +40,17 @@ $stmt = $connectie->prepare("UPDATE menu SET titel = :titel WHERE id = :id");
             <div class="name-bg">
                 <h1>La Madrozo</h1>
             </div>
-            <div class="mid-space"></div>
+            <div class="mid-space">
+
+            </div>
             <div class="admin-panel-wrapper">
                 <?php if (isset($_SESSION['name'])) { ?>
                     <a href="admin-panel.php">
-                        <button>Admin Panel</button>
+                        <div class="admin-button">Admin Panel</div>
                     </a>
                 <?php } ?>
             </div>
+
             <div class="log-in-bg">
                 <a class="log-in-button" onclick="document.getElementById('id01').style.display='block'">Log-In</a>
             </div>
@@ -107,11 +110,11 @@ $stmt = $connectie->prepare("UPDATE menu SET titel = :titel WHERE id = :id");
     </div>
     <div class="red-under-bar">
         <div class="menu-bg">
-            <a class="menu-button" href="index.html">Meer ⬇</a>
+            <button class="menu-button" href="index.html">Meer ⬇</button>
             <div class="dropdown-content">
-                <a class="dropdown-links">Contact</a>
-                <a class="dropdown-links">Openingstijden & Info</a>
-                <a class="dropdown-links">Algemene Voorwaarden</a>
+                <a class="dropdown-links" href="contact.php">Contact</a>
+                <a class="dropdown-links" href="openingstijden.php">Openingstijden & Info</a>
+                <a class="dropdown-links" href="voorwaarden.php">Algemene Voorwaarden</a>
             </div>
         </div>
 
@@ -140,10 +143,7 @@ $stmt = $connectie->prepare("UPDATE menu SET titel = :titel WHERE id = :id");
                     <h2>Vegan Pizza's</h2>
                 </button>
                 <button class="categories-content">
-                    <h2>Combi Deals</h2>
-                </button>
-                <button class="categories-content">
-                    <h2>Sandwiches</h2>
+                    <h2>Hete broodjes</h2>
                 </button>
                 <button class="categories-content">
                     <h2>Dranken</h2>

@@ -4,7 +4,7 @@ session_start();
 $dsn = 'mysql:dbname=restaurant;host=127.0.0.1';
 
 $user = 'root';
-$password = ''; 
+$password = '';
 $id = $_GET['id'];
 
 try {
@@ -15,7 +15,7 @@ try {
 }
 
 $stmt = $connectie->query("SELECT * FROM menu WHERE id = $id");
-    $menu_item = $stmt->fetch();
+$menu_item = $stmt->fetch();
 
 if (isset($_POST['submit'])) {
 
@@ -62,9 +62,9 @@ if (isset($_POST['submit'])) {
             <div class="menu-bg">
                 <a class="menu-button" href="index.html">Meer ⬇</a>
                 <div class="dropdown-content">
-                    <a class="dropdown-links">Contact</a>
-                    <a class="dropdown-links">Openingstijden & Info</a>
-                    <a class="dropdown-links">Algemene Voorwaarden</a>
+                    <a class="dropdown-links" href="contact.php">Contact</a>
+                    <a class="dropdown-links" href="openingstijden.php">Openingstijden & Info</a>
+                    <a class="dropdown-links" href="voorwaarden.php">Algemene Voorwaarden</a>
                 </div>
             </div>
             <a class="back-menu-button" href="index.php">Menu</a>
@@ -90,7 +90,7 @@ if (isset($_POST['submit'])) {
                         value="<?php echo $menu_item['categorie'] ?>">
 
                     <!-- include the ID of the menu item being edited as a hidden input field -->
-                    <input type="hidden" name="id" value="<?php echo $_POST['id'] ?>">
+                    <input type="hidden" name="id">
 
                     <input type="submit" name="submit" value="Submit">
                 </form>

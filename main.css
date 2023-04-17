@@ -5,6 +5,7 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+
 .nav {
     display: flex;
     justify-content: space-between;
@@ -190,7 +191,8 @@
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    height: 1400px;
+    height: 2200px;
+    top: 40px;
     padding-top: 50px;
     background-color: white;
 }
@@ -202,7 +204,7 @@
     align-items: center;
     position: -webkit-sticky;
     position: sticky;
-    top: 0;
+    top: 200px;
     width: 25%;
     height: 550px;
     margin-left: 10px;
@@ -357,7 +359,8 @@ input[type=password] {
 }
 
 .container-log-in {
-    height: 200px;
+    height: 100px;
+    width: 80%;
     padding: 16px;
 }
 
@@ -781,7 +784,7 @@ span.psw {
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    height: 1400px;
+    height: 2800px;
     border: solid;
     border-color: red;
     background-color: white;
@@ -877,6 +880,7 @@ input[type=password] {
 
 .container-log-in {
     height: 200px;
+    width: 90%;
     padding: 16px;
 }
 
@@ -991,6 +995,9 @@ input[type=password] {
 }
 
 .admin-panel-wrapper {
+    text-align: center;
+}
+.admin-button {
     background-color: red;
     border: none;
     color: white;
@@ -1003,17 +1010,7 @@ input[type=password] {
     cursor: pointer;
 }
 
-.admin-panel-button {
-    background-color: red;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 20px;
-    cursor: pointer;
-    margin: 0 10px;
-}
+
 
 .admin-panel-bg {
     display: inline-block;
@@ -1075,6 +1072,7 @@ input[type=password] {
     outline-offset: .1em;
     transition: background-size .4s, background-position 0s .4s;
     text-decoration: none;
+    color: black;
     width: 20%;
     height: 50px;
 }
@@ -1199,6 +1197,84 @@ input[type="submit"] {
     cursor: pointer;
     width: 20%;
     height: 50px;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 700px;
+    padding-top: 50px;
+    background-color: white;
+}
+
+.contact-bg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 45%;
+    height: 500px;
+    background-color: white;
+}
+
+.insta-text{
+    text-decoration: none;
+    color: black;
+}
+
+.voorwaarden-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 1200px;
+    padding-top: 50px;
+    background-color: white;
+}
+
+.voorwaarden-bg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 65%;
+    height: 800px;
+    padding-left: 5px;
+    font-size: 12px;
+    background-color: red;
+    color: white;
+}
+
+.openingstijden-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 800px;
+    padding-top: 50px;
+    background-color: white;
+}
+
+#customers td,
+#customers th {
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+#customers tr:nth-child(even) {
+    background-color: white
+}
+
+#customers tr:hover {
+  background-color: gray
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: red;
+  color: white;
 }
 
 @media screen and (max-width: 300px) {
