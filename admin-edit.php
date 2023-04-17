@@ -4,7 +4,7 @@ session_start();
 $dsn = 'mysql:dbname=restaurant;host=127.0.0.1';
 
 $user = 'root';
-$password = '';
+$password = ''; 
 $id = $_GET['id'];
 
 try {
@@ -23,7 +23,6 @@ if (isset($_POST['submit'])) {
     $beschrijving = $_POST['beschrijving'];
     $prijs = $_POST['prijs'];
     $categorie = $_POST['categorie'];
-    var_dump($id);
     $connectie->query("UPDATE menu SET beschrijving = '$beschrijving' WHERE id = $id");
 
 }

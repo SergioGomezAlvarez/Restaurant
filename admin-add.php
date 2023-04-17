@@ -14,12 +14,29 @@ try {
 }
 
 
+if (isset($_POST['submit'])) {
+    $titel = $_POST['titel'];
+    $beschrijving = $_POST['beschrijving'];
+    $prijs = $_POST['prijs'];
+    $categorie = $_POST['categorie'];
 
-$stmt = $connectie->prepare("UPDATE menu SET titel = :titel WHERE id = :id");
+    $sql = "INSERT INTO menu (titel, beschrijving, prijs, categorie) VALUES (:titel, :beschrijving, :prijs, :categorie)";
+
+    $stmt = $connectie->prepare($sql);
+
+    $stmt->bindParam(':titel', $titel);
+    $stmt->bindParam(':beschrijving', $beschrijving);
+    $stmt->bindParam(':prijs', $prijs);
+    $stmt->bindParam(':categorie', $categorie);
+
+    $stmt->execute();
+
+    echo "Product toegevoegd!";
+}
 
 
-$resultSet = $connectie->query("SELECT * FROM menu");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,52 +79,30 @@ $resultSet = $connectie->query("SELECT * FROM menu");
         </div>
     </nav>
 
-    <div class="wrapper">
-        <div class="add-bg">
-
-        </div>
-        <div class="add-bg">
-            <a class="admin-add-button" href="admin-add.php">Voeg Toe +</a>
-        </div>
-    </div>
-
     <div class="admin-content-container">
+        <div class="admin-edit-top">
+            <div>
+                <form class="form" method="POST">
+                    <label class="edit-form" for="titel">Titel</label>
+                    <input type="text" name="titel" placeholder="Titel ...">
 
+                    <label class="edit-form" for="beschrijving">Beschrijving</label>
+                    <input type="text" name="beschrijving" placeholder="Beschrijving ...">
 
-        <div class="admin-content-container">
+                    <label class="edit-form" for="prijs">Prijs</label>
+                    <input type="text" name="prijs" placeholder="Prijs ...">
 
+                    <label class="edit-form" for="categorie">Categorie</label>
+                    <input type="text" name="categorie" placeholder="Categorie ...">
 
-        <?php
-  
+                    <!-- include the ID of the menu item being edited as a hidden input field -->
+                    <input type="hidden" name="id" value="<?php echo $_POST['id'] ?>">
 
-    $resultSet = $connectie->query("SELECT `categorie`, `titel`, `beschrijving`, `prijs`, `id` FROM menu");
-    $data = $resultSet->fetchAll(PDO::FETCH_GROUP);
-
-    echo '<div class="content-container">';
-
-    foreach ($data as $categorie => $items) {
-        echo "<div class='top-text'>
-               <h2>$categorie</h2>
-           </div>";
-
-        foreach ($items as $item) {
-            echo '<div class="menu-item">
-                   <h2 class="menu-item-title">' . $item['titel'] . '</h2>
-                   <div class="menu-content">
-                       <p>' . $item['beschrijving'] . '</p>
-                       <p class="menu-price">' . $item['prijs'] . '</p>
-                       <a class="admin-edit-button" href="admin-edit.php?id=' . $item['id'] . '">Bewerk</a>
-                       <a class="admin-delete-button" href="index.php?id=' . $item['id'] . '">Verwijder</a>
-                   </div>
-               </div>';
-        }
-    }
-    
-?>
-
-            echo '</div>';
-
-          
-            ?>
+                    <input type="submit" name="submit" value="Submit">
+                </form>
+            </div>
         </div>
     </div>
+</body>
+
+</html>
