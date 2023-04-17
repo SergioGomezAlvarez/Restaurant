@@ -14,11 +14,7 @@ try {
 }
 
 $stmt = $connectie->prepare("UPDATE menu SET titel = :titel WHERE id = :id");
-
-
-$resultSet = $connectie->query("SELECT * FROM menu");
-00
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,101 +33,96 @@ $resultSet = $connectie->query("SELECT * FROM menu");
 
 <body>
     <nav>
-        <div class="nav-under-bar1">
+        <div class="nav-container">
             <div class="logo-bg">
                 <img class="logo01" src="images/pizza-chef.png">
             </div>
             <div class="name-bg">
-                <h1>La Madrozo<h1>
+                <h1>La Madrozo</h1>
             </div>
             <div class="mid-space"></div>
             <div class="admin-panel-wrapper">
+                <?php if (isset($_SESSION['name'])) { ?>
+                    <a href="admin-panel.php">
+                        <button>Admin Panel</button>
+                    </a>
+                <?php } ?>
+            </div>
+            <div class="log-in-bg">
+                <a class="log-in-button" onclick="document.getElementById('id01').style.display='block'">Log-In</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="id01" class="modal">
+        <form action="index.php" method="POST" class="modal-content animate">
+            <div class="imgcontainer">
                 <?php
-                if (isset($_SESSION['name'])) {
-                    echo '<a href="admin-panel.php"><button style="background-color: red; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 20px; margin: 4px 2px; cursor: pointer;">Admin Panel</button></a>';
+
+                if (isset($_POST['username'])) {
+                    $username = $_POST['username'];
+                    $password = $_POST['password'];
+
+
+                    if ($username == "Osama" && $password == "123") {
+                        $_SESSION['name'] = $username;
+                    } else {
+                        echo "Wachtwoord verkeerd";
+                    }
                 }
+
+
+                if (isset($_SESSION['name']) && $_SESSION['name'] != "") {
+                    echo "<div style=\"font-family: 'Roboto Condensed', sans-serif; font-size: 22px; color: black;\">Hoi " . $_SESSION['name'] . "</div>";
+                }
+
                 ?>
+                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+                <img class="avatar" src="images/pizza-avatar.png">
             </div>
 
-        </div>
-        <div class="log-in-bg">
-            <a class="log-in-button" onclick="document.getElementById('id01').style.display='block'"
-                style="width:auto;">Log-In</a>
-        </div>
-        </div>
+            <div class="container-log-in">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="username" required>
 
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required>
 
-        <div id="id01" class="modal">
-            <form action="index.php" method="POST" class="modal-content animate">
-                <div class="imgcontainer">
-                    <?php
-
-                    if (isset($_POST['username'])) {
-                        $username = $_POST['username'];
-                        $password = $_POST['password'];
-
-
-                        if ($username == "Osama" && $password == "123") {
-                            $_SESSION['name'] = $username;
-                        } else {
-                            echo "Wachtwoord verkeerd";
-                        }
-                    }
-
-
-                    if (isset($_SESSION['name']) && $_SESSION['name'] != "") {
-                        echo "<div style=\"font-family: 'Roboto Condensed', sans-serif; font-size: 22px; color: black;\">Hoi " . $_SESSION['name'] . "</div>";
-                    }
-
-                    ?>
-                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                        title="Close Modal">&times;</span>
-                    <img class="avatar" src="images/pizza-avatar.png">
-                </div>
-
-                <div class="container-log-in">
-                    <label for="uname"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="username" required>
-
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="password" required>
-
-                    <button class="log-in-confirm" type="submit">Login</button>
-                    <label>
-                        <input type="checkbox" checked="checked" name="remember"> Remember me
-                    </label>
-                    <span class="psw">Forgot <a href="#">password?</a></span>
-                </div>
-
-                <div class="container-bg">
-
-                </div>
-            </form>
-        </div>
-        </div>
-
-        <div class="cart-bg">
-            <img class="cart-img" src="images/shopping-cart.png">
-        </div>
-        </div>
-        <div class="red-under-bar">
-            <div class="menu-bg">
-                <a class="menu-button" href="index.html">Meer ⬇</a>
-                <div class="dropdown-content">
-                    <a class="dropdown-links">Contact</a>
-                    <a class="dropdown-links">Openingstijden & Info</a>
-                    <a class="dropdown-links">Algemene Voorwaarden</a>
-                </div>
+                <button class="log-in-confirm" type="submit">Login</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+                <span class="psw">Forgot <a href="#">password?</a></span>
             </div>
 
-            <div class="space-red-under-bar">
+            <div class="container-bg">
 
             </div>
-            <form method="post" action="index.php">
-                <input type="text" name="zoekveld" placeholder="Zoek naar een gerecht. .">
-                <input type="submit" name="submit-button" value="Zoeken">
-            </form>
+        </form>
+    </div>
+    </div>
+
+
+    </div>
+    <div class="red-under-bar">
+        <div class="menu-bg">
+            <a class="menu-button" href="index.html">Meer ⬇</a>
+            <div class="dropdown-content">
+                <a class="dropdown-links">Contact</a>
+                <a class="dropdown-links">Openingstijden & Info</a>
+                <a class="dropdown-links">Algemene Voorwaarden</a>
+            </div>
         </div>
+
+        <div class="space-red-under-bar">
+
+        </div>
+        <form method="post" action="index.php">
+            <input type="text" name="zoekveld" placeholder="Zoek naar een gerecht. .">
+            <input type="submit" name="submit-button" value="Zoeken">
+        </form>
+    </div>
     </nav>
     <div class="container">
         <div class="categories">
@@ -166,32 +157,25 @@ $resultSet = $connectie->query("SELECT * FROM menu");
             </div>
         </div>
         <div class="dishes">
-           
-            <div class="content-container">
 
 
-                <?php
-                if (isset($_POST['zoekveld']) && $_POST['zoekveld'] != "") {
-                    $zoekveld = $_POST['zoekveld'];
-                    $resultSet = $connectie->prepare("SELECT * FROM menu WHERE titel LIKE '%$zoekveld%'");
 
-                } else {
-                    $resultSet = $connectie->prepare("SELECT * FROM menu");
-                }
-                $resultSet->execute(array());
+            <?php
 
-                $resultSet = $connectie->query("SELECT `categorie`, `titel`, `beschrijving`, `prijs` FROM menu");
-                $data = $resultSet->fetchAll(PDO::FETCH_GROUP);
-
-                echo '<div class="content-container">';
-
-                foreach ($data as $categorie => $items) {
-                    echo "<div class='top-text'>
+            if (isset($_POST['zoekveld'])) {
+                $statement = $connectie->prepare("SELECT categorie, titel, beschrijving, prijs FROM Menu WHERE Titel LIKE ?");
+                $statement->execute(['%' . $_POST['zoekveld'] . '%']);
+            } else {
+                $statement = $connectie->query("SELECT categorie, titel, beschrijving, prijs FROM Menu");
+            }
+            $data = $statement->fetchAll(PDO::FETCH_GROUP);
+            foreach ($data as $categorie => $items) {
+                echo "<div class='top-text'>
                     <h2>$categorie</h2>
-                </div>";
+                            </div>";
 
-                    foreach ($items as $item) {
-                        echo '<div class="menu-item">
+                foreach ($items as $item) {
+                    echo '<div class="menu-item">
                             <h2 class="menu-item-title">' . $item['titel'] . '</h2>
                             <div class="menu-content">
                                 <p>' . $item['beschrijving'] . '</p>
@@ -199,18 +183,16 @@ $resultSet = $connectie->query("SELECT * FROM menu");
                                 <a class="add-button">+ Voeg Toe</a>
                             </div>
                         </div>';
-                    }
                 }
+            }
 
-                echo '</div>';
-                ?>
-            </div>
+            ?>
         </div>
 
     </div>
 
 
-   
+
 
     <script>
         window.onscroll = function () { myFunction() };
