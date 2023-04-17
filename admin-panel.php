@@ -103,5 +103,4 @@ $resultSet = $connectie->query("SELECT * FROM menu");
                </div>';
             }
         }
-
         ?>

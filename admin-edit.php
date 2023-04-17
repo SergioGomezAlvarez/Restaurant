@@ -89,7 +89,6 @@ if (isset($_POST['submit'])) {
                     <input type="text" name="categorie" placeholder="Categorie ..."
                         value="<?php echo $menu_item['categorie'] ?>">
 
-                    <!-- include the ID of the menu item being edited as a hidden input field -->
                     <input type="hidden" name="id">
 
                     <input type="submit" name="submit" value="Submit">

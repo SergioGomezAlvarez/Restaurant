@@ -185,7 +185,7 @@ $stmt = $connectie->prepare("UPDATE menu SET titel = :titel WHERE id = :id");
                         </div>';
                 }
             }
-
+          
             ?>
         </div>
 

@@ -14,6 +14,7 @@ try {
 }
 
 $stmt = $connectie->prepare("UPDATE menu SET titel = :titel WHERE id = :id");
+session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en">
