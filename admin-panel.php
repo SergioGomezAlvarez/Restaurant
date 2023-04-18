@@ -98,7 +98,7 @@ $resultSet = $connectie->query("SELECT * FROM menu");
                        <p>' . $item['beschrijving'] . '</p>
                        <p class="menu-price">' . $item['prijs'] . '</p>
                        <a class="admin-edit-button" href="admin-edit.php?id=' . $item['id'] . '">Bewerk</a>
-                       <a class="admin-delete-button" href="index.php?id=' . $item['id'] . '">Verwijder</a>
+                       <a class="admin-delete-button" href="admin-panel.php?id=' . $item['id'] . '">Verwijder</a>
                    </div>
                </div>';
             }
